@@ -4,9 +4,7 @@ Konrad Kihan 2021
 """
 from os import listdir, rename
 from os.path import exists, join, dirname, abspath
-from typing import Type
 from PIL import Image, ImageEnhance
-import cv2 as cv
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -34,9 +32,6 @@ def seek_images(directory: str) -> list:
                     rename(f"{dir}\{f}", f"{dir}\_{f[1:]}")
                 files.append(f"{dir}\{f}")
             
-
-
-
     return files
 # TODO optimize process                                                                                                                                                                         (maybe)
 

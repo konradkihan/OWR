@@ -97,7 +97,10 @@ class ImageRecgonition:
                 validation_split = validationSplit)
     
     def calling_predictions(self, model, testImg):          # predicting tests
-        prediction = model.predict([prepare(testImg)])      # pick a test sample
+        # preparing models and dimensions
+        imgArray = imread(testImg)
+        actualImg = resize(imgArray, self.size).reshape(-1, self.size[0], self.size[1], 3)
+        prediction = model.predict([actualImg])      # pick a test sample
         return self.categories[int(prediction[0][0])]
 
         
