@@ -64,9 +64,7 @@ class ImageRecgonition:
         self.modelSequential.add(Activation('relu'))
         self.modelSequential.add(MaxPooling2D(pool_size=(2, 2)))
 
-        self.modelSequential.add(Flatten())
-        self.modelSequential.add(Dense(64))
-        self.modelSequential.add(Dense(7))
+        self.modelSequential.add(Flatten()).add(Dense(64)).add(Dense(7))
         self.modelSequential.add(Activation('sigmoid'))
         # TODO modeling in beta version
         # TODO create several models to choose from as methods
